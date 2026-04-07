@@ -11,7 +11,13 @@
     "text1": "Home",
     "text2" : "Bookings",
     "text3" : "Patients",
-    "text4" : "Blog"
+    "text4" : "Blog",
+    "text5" : "Cardiolog",
+    "text6" : "Edit Profile",
+    "text7" : "Language",
+    "text8" : "Support",
+    "text9" : "About application",
+    "text10" : "Log out"
   },
 
   "home_detail": {
@@ -47,6 +53,14 @@
     "text4" : "Phone number",
     "text5" : "Examination date",
     "text6" : "Patient analyzes"
+  },
+
+  "edit" : {
+    "text1" : "Edit profile",
+    "text2" : "First name",
+    "text3" : "Last name",
+    "text4" : "Phone number",
+    "text5" : "Save"
   },
 
   "continue" : "Continue",

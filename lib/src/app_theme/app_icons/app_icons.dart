@@ -21,4 +21,5 @@ class AppIcons {
   static const support = "assets/icons/support.svg";
   static const i = "assets/icons/i.svg";
   static const logout = "assets/icons/logout.svg";
+  static const camera = "assets/icons/camera.svg";
 }

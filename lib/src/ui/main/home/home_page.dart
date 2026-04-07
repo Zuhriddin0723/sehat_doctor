@@ -209,14 +209,17 @@ class _HomePageState extends State<HomePage> {
       automaticallyImplyLeading: false,
       title: Row(
         children: [
-          CircleAvatar(
-            radius: 22.r,
-            backgroundColor: Colors.white,
+          InkWell(
+            onTap: widget.onTap,
             child: CircleAvatar(
-              radius: 21.r,
-              backgroundImage: AssetImage(
-                "assets/images/doctor.png",
-              ), // AppImages.doctor
+              radius: 22.r,
+              backgroundColor: Colors.white,
+              child: CircleAvatar(
+                radius: 21.r,
+                backgroundImage: AssetImage(
+                  "assets/images/doctor.png",
+                ), // AppImages.doctor
+              ),
             ),
           ),
           Gap(8.w),

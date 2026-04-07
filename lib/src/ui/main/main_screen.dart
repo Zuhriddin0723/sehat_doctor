@@ -5,12 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gap/flutter_gap.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:sehat_doctor/src/ui/auth/login/login_screen.dart';
 import 'package:sehat_doctor/src/ui/main/bookings/bookings_screen.dart';
 import 'package:sehat_doctor/src/ui/main/patients/patients_screen.dart';
 import '../../app_theme/app_colors/app_colors.dart';
 import '../../app_theme/app_icons/app_icons.dart';
 import '../../app_theme/app_images/app_images.dart';
 import '../../app_theme/app_styles/app_styles.dart';
+import 'edit_profile/edit_profile_screen.dart';
 import 'home/home_page.dart';
 
 class MainScreen extends StatefulWidget {
@@ -77,20 +79,20 @@ class _MainScreenState extends State<MainScreen> {
         backgroundColor: AppColors.white,
         child: Column(
           children: [
-            Gap(40.h),
+            Gap(52.h),
             Container(
               height: 96.h,
               width: 96.w,
-              child: SvgPicture.asset(AppIcons.user),
+              child: Image.asset(AppImages.doctor),
             ),
             Gap(8.h),
-            Text("Sarah Johnson", style: AppStyles.medium16(AppColors.black)),
+            Text("Dr. Emily Carter", style: AppStyles.medium16(AppColors.black)),
             Gap(4.h),
-            Text("ID : 1233455", style: AppStyles.regular14(AppColors.grey)),
+            Text("main.text5", style: AppStyles.regular14(AppColors.textGrey)),
             Gap(12.h),
             Container(
               width: 288.w,
-              height: 288.h,
+              height: 192.h,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.r),
                 color: Colors.grey.shade100,
@@ -99,34 +101,26 @@ class _MainScreenState extends State<MainScreen> {
                 padding: EdgeInsets.all(13.h),
                 child: Column(
                   children: [
-                    _drawer(AppIcons.home, "home".tr(), false, () {
-                      Navigator.pop(context);
+                    _drawer(AppIcons.user, "main.text6".tr(), false, () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (ctx) => EditProfile()),
+                      );
                     }),
                     Gap(5.h),
                     Divider(color: Colors.grey.shade300),
                     Gap(5.h),
-                    _drawer(AppIcons.user, "edit_profile".tr(), false, () {
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(builder: (ctx) => EditProfile()),
-                      // );
-                    }),
+                    _drawer(AppIcons.language, "main.text7".tr(), true, () {}),
                     Gap(5.h),
                     Divider(color: Colors.grey.shade300),
                     Gap(5.h),
-                    _drawer(AppIcons.language, "language".tr(), true, () {}),
-                    Gap(5.h),
-                    Divider(color: Colors.grey.shade300),
-                    Gap(5.h),
-                    _drawer(AppIcons.support, "support".tr(), false, () {}),
-                    Gap(5.h),
-                    Divider(color: Colors.grey.shade300),
+                    _drawer(AppIcons.support, "main.text8".tr(), false, () {}),
                     Gap(5.h),
                     Divider(color: Colors.grey.shade300),
                     Gap(5.h),
                     _drawer(
                       AppIcons.i,
-                      "about_application".tr(),
+                      "main.text9".tr(),
                       false,
                           () {},
                     ),
@@ -142,14 +136,14 @@ class _MainScreenState extends State<MainScreen> {
                   Gap(10.w),
                   InkWell(
                     onTap: (){
-                      // Navigator.pushAndRemoveUntil(
-                      //   context,
-                      //   MaterialPageRoute(builder: (context) => SplashScreen()),
-                      //       (Route<dynamic> route) => false,
-                      // );
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(builder: (context) => LoginScreen()),
+                            (Route<dynamic> route) => false,
+                      );
                     },
                     child: Text(
-                      "log_out".tr(),
+                      "main.text10".tr(),
                       style: AppStyles.regular16(AppColors.red),
                     ),
                   ),

@@ -70,11 +70,11 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
         // Chegaralar (Borders)
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30.r),
-          borderSide: BorderSide(color: Colors.blue.shade100, width: 1.0),
+          borderSide: BorderSide(color: Colors.white, width: 1.0),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30.r),
-          borderSide: BorderSide(color: Colors.blue.shade300, width: 1.5),
+          borderSide: BorderSide(color: Colors.white, width: 1.5),
         ),
       ),
     );
