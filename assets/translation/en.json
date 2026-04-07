@@ -1,0 +1,54 @@
+{
+  "login": {
+    "text1": "Welcome back, Doctor",
+    "text2" : "Sign in to manage your appointments and patients",
+    "text3" : "Phone number",
+    "text4" : "Password",
+    "text5" : "Enter password"
+  },
+
+  "main": {
+    "text1": "Home",
+    "text2" : "Bookings",
+    "text3" : "Patients",
+    "text4" : "Blog"
+  },
+
+  "home_detail": {
+    "text1": "Information about the patient",
+    "text2" : "Patient information",
+    "text3" : "Name",
+    "text4" : "Birthday",
+    "text5" : "Phone number",
+    "text6" : "Upload diagnostic file",
+    "text7" : "Upload",
+    "text8" : "Mark as No-show",
+    "text9" : "Complete consultation",
+    "text10" : "Are you sure you want to mark this patient as no-show?",
+    "text11" : "Cancel",
+    "text12" : "Continue"
+  },
+
+  "bookings" : {
+    "text1" : "Bookings",
+    "text2" : "Upcoming",
+    "text3" : "History"
+  },
+
+  "patients" : {
+    "text1" : "Patients",
+    "text2" : "Search patients"
+  },
+
+  "patients_information" : {
+    "text1" : "Patient information",
+    "text2" : "Name",
+    "text3" : "Birthday",
+    "text4" : "Phone number",
+    "text5" : "Examination date",
+    "text6" : "Patient analyzes"
+  },
+
+  "continue" : "Continue",
+  "time" : "TIME"
+}
