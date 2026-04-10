@@ -22,4 +22,6 @@ class AppIcons {
   static const i = "assets/icons/i.svg";
   static const logout = "assets/icons/logout.svg";
   static const camera = "assets/icons/camera.svg";
+  static const edit = "assets/icons/edit.svg";
+  static const share = "assets/icons/share.svg";
 }

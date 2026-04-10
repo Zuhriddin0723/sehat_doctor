@@ -68,7 +68,8 @@ class _PatientsInformationState extends State<PatientsInformation> {
 
               // Bemor haqida batafsil ma'lumot (User, Date, Call)
               Container(
-                width: double.infinity,
+                width: 343.w,
+                height: 246.h,
                 padding: EdgeInsets.all(12.h),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10.r),
@@ -93,11 +94,9 @@ class _PatientsInformationState extends State<PatientsInformation> {
                 ),
               ),
               Gap(10.h),
-
-              // 2. RASMLAR RO'YXATI (API UCHUN MOSLASHUVCHAN)
               Container(
-                width: double.infinity,
-                padding: EdgeInsets.all(12.w),
+                width: 343.w,
+                padding: EdgeInsets.all(12.h),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16.r),
                   color: AppColors.white,
@@ -221,7 +220,8 @@ class _PatientsInformationState extends State<PatientsInformation> {
   // Ma'lumotlar qatori (Icon + Title + Subtitle)
   Widget _infoRow(String icon, String title, String subtitle) {
     return Container(
-      width: double.infinity,
+      width: 319.w,
+      height: 40.h,
       padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 8.h),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10.r),
@@ -229,10 +229,10 @@ class _PatientsInformationState extends State<PatientsInformation> {
       ),
       child: Row(
         children: [
-          SvgPicture.asset(icon, colorFilter: const ColorFilter.mode(AppColors.primary, BlendMode.srcIn)),
+          SvgPicture.asset(icon, colorFilter: ColorFilter.mode(AppColors.primary, BlendMode.srcIn)),
           Gap(8.w),
           Text(title, style: AppStyles.regular14(AppColors.textGrey)),
-          const Spacer(),
+          Spacer(),
           Text(subtitle, style: AppStyles.medium14(AppColors.black)),
         ],
       ),

@@ -6,6 +6,7 @@ import 'package:flutter_gap/flutter_gap.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sehat_doctor/src/ui/auth/login/login_screen.dart';
+import 'package:sehat_doctor/src/ui/main/blog/blog_screen.dart';
 import 'package:sehat_doctor/src/ui/main/bookings/bookings_screen.dart';
 import 'package:sehat_doctor/src/ui/main/patients/patients_screen.dart';
 import '../../app_theme/app_colors/app_colors.dart';
@@ -30,7 +31,7 @@ class _MainScreenState extends State<MainScreen> {
     ),
     BookingsScreen(),
     PatientsScreen(),
-    const Center(child: Text("Blog"),),
+    BlogScreen()
   ];
 
   void onTap(int index) {

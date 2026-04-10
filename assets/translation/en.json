@@ -63,6 +63,12 @@
     "text5" : "Save"
   },
 
+  "blog" : {
+    "text1" : "Your blog",
+    "text2" : "Edit",
+    "text3" : "Share"
+  },
+
   "continue" : "Continue",
   "time" : "TIME"
 }

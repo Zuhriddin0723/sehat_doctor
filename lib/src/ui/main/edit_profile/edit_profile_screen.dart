@@ -4,7 +4,6 @@ import 'package:flutter_gap/flutter_gap.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sehat_doctor/src/app_theme/app_images/app_images.dart';
-import 'package:sehat_doctor/src/widget/field_widget.dart';
 import 'package:sehat_doctor/src/widget/text_field_widget.dart';
 import '../../../app_theme/app_colors/app_colors.dart';
 import '../../../app_theme/app_icons/app_icons.dart';

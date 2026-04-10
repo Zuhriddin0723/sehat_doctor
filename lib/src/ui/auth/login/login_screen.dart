@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gap/flutter_gap.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:sehat_doctor/src/ui/main/main_screen.dart';
 import 'package:sehat_doctor/src/widget/button_widget.dart';
 import 'package:sehat_doctor/src/widget/text_field_widget.dart';
 
@@ -117,7 +118,13 @@ class _LoginScreenState extends State<LoginScreen> {
               padding: EdgeInsets.only(bottom: 50.h),
               child: ButtonWidget(
                   text: "continue".tr(),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(builder: (context) => const MainScreen()),
+                          (route) => false,
+                    );
+                  },
                 isActive: isActive,
               ),
             ),
