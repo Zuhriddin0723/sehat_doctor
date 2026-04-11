@@ -104,60 +104,56 @@ class _BookingsScreenState extends State<BookingsScreen> {
               },
               children: [
                 /// upcoming
-                Expanded(
-                  child: ListView.builder(
-                    padding: EdgeInsets.only(
-                      left: 16.w,
-                      right: 16.w,
-                      top: 20.h,
-                      bottom: 100.h,
-                    ),
-                    itemCount: appointments.length,
-                    itemBuilder: (context, index) {
-                      final item = appointments[index];
-                      if (item.containsKey("type") && item["type"] == "header") {
-                        return Padding(
-                          padding: EdgeInsets.only(
-                            bottom: 12.h,
-                            top: index == 0 ? 0 : 16.h,
-                          ),
-                          child: Text(
-                            item["title"],
-                            style: AppStyles.regular14(AppColors.textGrey)
-                          ),
-                        );
-                      }
-                      return _buildAppointmentCard(item);
-                    },
+                ListView.builder(
+                  padding: EdgeInsets.only(
+                    left: 16.w,
+                    right: 16.w,
+                    top: 20.h,
+                    bottom: 100.h,
                   ),
+                  itemCount: appointments.length,
+                  itemBuilder: (context, index) {
+                    final item = appointments[index];
+                    if (item.containsKey("type") && item["type"] == "header") {
+                      return Padding(
+                        padding: EdgeInsets.only(
+                          bottom: 12.h,
+                          top: index == 0 ? 0 : 16.h,
+                        ),
+                        child: Text(
+                          item["title"],
+                          style: AppStyles.regular14(AppColors.textGrey)
+                        ),
+                      );
+                    }
+                    return _buildAppointmentCard(item);
+                  },
                 ),
                 /// History
-                Expanded(
-                  child: ListView.builder(
-                    padding: EdgeInsets.only(
-                      left: 16.w,
-                      right: 16.w,
-                      top: 20.h,
-                      bottom: 100.h,
-                    ),
-                    itemCount: appointments.length,
-                    itemBuilder: (context, index) {
-                      final item = appointments[index];
-                      if (item.containsKey("type") && item["type"] == "header") {
-                        return Padding(
-                          padding: EdgeInsets.only(
-                            bottom: 12.h,
-                            top: index == 0 ? 0 : 16.h,
-                          ),
-                          child: Text(
-                            item["title"],
-                            style: AppStyles.regular14(AppColors.textGrey)
-                          ),
-                        );
-                      }
-                      return _buildAppointmentCard(item);
-                    },
+                ListView.builder(
+                  padding: EdgeInsets.only(
+                    left: 16.w,
+                    right: 16.w,
+                    top: 20.h,
+                    bottom: 100.h,
                   ),
+                  itemCount: appointments.length,
+                  itemBuilder: (context, index) {
+                    final item = appointments[index];
+                    if (item.containsKey("type") && item["type"] == "header") {
+                      return Padding(
+                        padding: EdgeInsets.only(
+                          bottom: 12.h,
+                          top: index == 0 ? 0 : 16.h,
+                        ),
+                        child: Text(
+                          item["title"],
+                          style: AppStyles.regular14(AppColors.textGrey)
+                        ),
+                      );
+                    }
+                    return _buildAppointmentCard(item);
+                  },
                 ),
               ],
             ),

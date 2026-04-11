@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_quill/flutter_quill.dart';
+import 'package:sehat_doctor/src/ui/auth/login/login_screen.dart';
 
 import 'package:sehat_doctor/src/ui/main/main_screen.dart';
 
@@ -77,7 +78,7 @@ class MyApp extends StatelessWidget {
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           ),
 
-          home: const MainScreen(),
+          home: const LoginScreen(),
         );
       },
     );

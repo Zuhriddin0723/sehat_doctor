@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_gap/flutter_gap.dart';
+
+import '../../../../app_theme/app_colors/app_colors.dart';
+import '../../../../app_theme/app_styles/app_styles.dart';
 
 class AddBlogScreen extends StatefulWidget {
   const AddBlogScreen({super.key});
@@ -13,6 +18,9 @@ class _AddBlogScreenState extends State<AddBlogScreen> {
   final FocusNode _focusNode = FocusNode();
   final ScrollController _scrollController = ScrollController();
 
+  final TextEditingController _titleController = TextEditingController();
+  final TextEditingController _subtitleController = TextEditingController();
+
   @override
   void initState() {
     super.initState();
@@ -20,37 +28,45 @@ class _AddBlogScreenState extends State<AddBlogScreen> {
   }
 
   @override
+  void dispose() {
+    _controller.dispose();
+    _titleController.dispose();
+    _subtitleController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // Bu parametr klaviatura chiqqanda UI siqilishini ta'minlaydi
-      resizeToAvoidBottomInset: true,
-      backgroundColor: const Color(0xFFF2F2F7), // Oqish-kulrang fon
+      backgroundColor: const Color(0xFFf5f5f5), // Light gray background
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
+        surfaceTintColor: Colors.transparent,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_new, color: Colors.black, size: 20),
           onPressed: () => Navigator.pop(context),
         ),
         centerTitle: true,
-        title: const Text(
+        title: Text(
           "Write",
-          style: TextStyle(color: Colors.black, fontWeight: FontWeight.w600),
+          style: AppStyles.medium16(AppColors.black),
         ),
         actions: [
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+            padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 16.w),
             child: ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFF002366), // To'q ko'k
+                backgroundColor: const Color(0xFF001E62), // Dark blue
                 foregroundColor: Colors.white,
                 elevation: 0,
+                padding: EdgeInsets.symmetric(horizontal: 20.w),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(20.r),
                 ),
               ),
-              child: const Text("Publish"),
+              child: Text("Publish", style: AppStyles.medium14(Colors.white)),
             ),
           )
         ],
@@ -58,84 +74,112 @@ class _AddBlogScreenState extends State<AddBlogScreen> {
       body: SafeArea(
         child: Column(
           children: [
-            /// ASOSIY MATN MAYDONI
+            Gap(10.h),
             Expanded(
               child: Container(
-                margin: const EdgeInsets.all(16),
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                margin: EdgeInsets.only(left: 16.w, right: 16.w, bottom: 20.h),
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(20.r),
                 ),
                 child: Column(
                   children: [
-                    /// TITLE
-                    TextField(
-                      style: TextStyle(
-                        fontSize: 28,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.blueGrey.shade200,
-                      ),
-                      decoration: const InputDecoration(
-                        hintText: "Title",
-                        border: InputBorder.none,
-                        hintStyle: TextStyle(color: Color(0xFFC7C7CD)),
-                      ),
-                    ),
-
-                    /// SUBTITLE
-                    TextField(
-                      style: const TextStyle(fontSize: 18),
-                      decoration: const InputDecoration(
-                        hintText: "Subtitle or brief summary...",
-                        border: InputBorder.none,
-                        hintStyle: TextStyle(color: Color(0xFFC7C7CD)),
-                      ),
-                    ),
-
-                    const SizedBox(height: 10),
-
-                    /// EDITOR (Tell your story...)
                     Expanded(
-                      child: QuillEditor(
+                      child: Padding(
+                        padding: EdgeInsets.all(20.w),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            /// TITLE
+                            TextField(
+                              controller: _titleController,
+                              style: TextStyle(
+                                fontSize: 32.sp,
+                                fontWeight: FontWeight.bold,
+                                color: const Color(0xFFC2C9D6),
+                              ),
+                              decoration: InputDecoration(
+                                hintText: "Title",
+                                isDense: true,
+                                contentPadding: EdgeInsets.zero,
+                                border: InputBorder.none,
+                                hintStyle: TextStyle(
+                                  color: const Color(0xFFC2C9D6),
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                            Gap(12.h),
+
+                            /// SUBTITLE
+                            TextField(
+                              controller: _subtitleController,
+                              style: TextStyle(
+                                fontSize: 18.sp,
+                                color: const Color(0xFFC2C9D6),
+                              ),
+                              decoration: InputDecoration(
+                                hintText: "Subtitle or brief summary...",
+                                isDense: true,
+                                contentPadding: EdgeInsets.zero,
+                                border: InputBorder.none,
+                                hintStyle: TextStyle(
+                                  color: const Color(0xFFC2C9D6),
+                                ),
+                              ),
+                            ),
+                            Gap(20.h),
+
+                            /// EDITOR
+                            Expanded(
+                              child: QuillEditor(
+                                controller: _controller,
+                                focusNode: _focusNode,
+                                scrollController: _scrollController,
+                                config: const QuillEditorConfig(
+                                  placeholder: "Tell your story...",
+                                  autoFocus: false,
+                                  expands: true,
+                                  padding: EdgeInsets.zero,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+
+                    /// TOOLBAR
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+                      child: QuillSimpleToolbar(
                         controller: _controller,
-                        focusNode: _focusNode,
-                        scrollController: _scrollController,
-                        config: const QuillEditorConfig(
-                          placeholder: "Tell your story...",
-                          autoFocus: false,
-                          expands: true,
-                          padding: EdgeInsets.zero,
+                        config: const QuillSimpleToolbarConfig(
+                          multiRowsDisplay: false,
+                          showFontFamily: false,
+                          showFontSize: false,
+                          showColorButton: false,
+                          showBackgroundColorButton: false,
+                          showClearFormat: false,
+                          showAlignmentButtons: false,
+                          showHeaderStyle: false,
+                          showListCheck: false,
+                          showCodeBlock: false,
+                          showInlineCode: false,
+                          showQuote: true,
+                          showIndent: false,
+                          showLink: true,
+                          showUndo: false,
+                          showRedo: false,
+                          showDirection: false,
+                          showSearchButton: false,
+                          showSubscript: false,
+                          showSuperscript: false,
+                          showSmallButton: false,
                         ),
                       ),
                     ),
                   ],
-                ),
-              ),
-            ),
-
-            /// TOOLBAR (Klaviatura ustida yoki ekran pastida)
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                border: Border(top: BorderSide(color: Colors.grey.shade200)),
-              ),
-              child: QuillSimpleToolbar(
-                controller: _controller,
-                config: const QuillSimpleToolbarConfig(
-                  // Toolbar ko'rinishini rasmga moslash
-                  showFontSize: false,
-                  showFontFamily: false,
-                  showColorButton: false,
-                  showBackgroundColorButton: false,
-                  showAlignmentButtons: false,
-                  showSearchButton: false,
-                  showSubscript: false,
-                  showSuperscript: false,
-                  showSmallButton: false,
-                  showDirection: false,
-                  multiRowsDisplay: false,
-                  // Faqat rasmda borlarini qoldirish mumkin
                 ),
               ),
             ),
@@ -144,4 +188,5 @@ class _AddBlogScreenState extends State<AddBlogScreen> {
       ),
     );
   }
+
 }
